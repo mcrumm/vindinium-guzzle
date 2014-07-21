@@ -4,15 +4,13 @@ namespace Vindinium\Http;
 use GuzzleHttp\Command\Guzzle\Description;
 use GuzzleHttp\ToArrayInterface;
 
-class ServiceDescription extends Description implements ToArrayInterface
-{
-    public function __construct(array $options = []) {
-        parent::__construct($this->toArray(), $options);
+class ServiceDescription extends Description implements ToArrayInterface {
+    public function __construct($baseUrl = 'http://vindinium.org/', array $options = []) {
+        parent::__construct(array_merge([ 'baseUrl' => $baseUrl ], $this->toArray()), $options);
     }
 
     public function toArray() {
         return [
-            'baseUrl' => 'http://vindinium.org/',
             'operations' => [
                 'training'  => $this->getTrainingOperation(),
                 'move'      => $this->getMoveOperation(),
