@@ -8,9 +8,9 @@ class Server {
     protected $description;
     protected $client;
 
-    public function __construct(array $config = [], array $cmdConfig = []) {
-        $this->description  = new ServiceDescription($config);
-        $this->client       = new GuzzleClient(new HttpClient(), $this->description, $cmdConfig);
+    public function __construct($key, $host = null, array $options = []) {
+        $this->description  = new ServiceDescription($host, $options);
+        $this->client       = new GuzzleClient(new HttpClient(), $this->description, [ 'defaults' => [ 'key' => $key ] ]);
     }
 
     public function getClient() {
