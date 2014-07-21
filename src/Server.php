@@ -31,7 +31,7 @@ class Server {
     }
 
     public function move($url, $dir) {
-        $url = str_replace($this->getBaseUrl() . 'api/', '', $url);
+        $url = str_replace(rtrim($this->getBaseUrl(), '/') . '/api/', '', $url);
         return $this->send('move', [ 'url' => $url, 'dir' => (string)$dir ]);
     }
 
