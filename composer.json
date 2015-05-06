@@ -3,7 +3,7 @@
     "description": "Vindinium client in Guzzle4",
     "keywords": [ "vindinium", "guzzle" ],
     "require": {
-        "guzzlehttp/guzzle-services": "0.3.*"
+        "guzzlehttp/guzzle-services": ">=0.3.0,<0.7.0"
     },
     "autoload": {
       "psr-4": {"Vindinium\\Http\\": "src/"}
